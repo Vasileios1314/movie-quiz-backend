@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       hint: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
     },
     {

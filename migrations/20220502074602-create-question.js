@@ -14,7 +14,7 @@ module.exports = {
       },
       hint: {
         type: Sequelize.STRING,
-        allowNull: false,
+       
       },
       categoryId: {
         type: Sequelize.INTEGER,
