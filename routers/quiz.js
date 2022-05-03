@@ -49,4 +49,21 @@ router.get("/scoreboard", async (req, res, next) => {
   }
 });
 
+router.get("/question/:id", async (req, res, next) => {
+  try {
+    const questionId = req.params.id;
+    const response = await Question.findByPk(questionId, {
+      include: Answer,
+    });
+    if (response) {
+      res.json(response);
+    } else {
+      res.status(404).send("Question not found");
+    }
+  } catch (e) {
+    console.log(e.message);
+    next(e);
+  }
+});
+
 module.exports = router;
