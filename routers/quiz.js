@@ -41,7 +41,7 @@ router.get("/questions", async (req, res, next) => {
 //get scoreboard
 router.get("/scoreboard", async (req, res, next) => {
   try {
-    const response = await Scoreboard.findAll();
+    const response = await Scoreboard.findAll({ order: [["score", "DESC"]] });
     res.status(201).send(response);
   } catch (e) {
     console.log(e.message);
