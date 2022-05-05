@@ -38,6 +38,17 @@ router.get("/questions", async (req, res, next) => {
   }
 });
 
+// add new player score
+
+router.post("/gameover", async (req, res, next) => {
+  const { username, score } = req.body;
+  const newScore = await Scoreboard.create({
+    username,
+    score,
+  });
+  return res.status(201).send({ message: "Game over!", newScore });
+});
+
 //get scoreboard
 router.get("/scoreboard", async (req, res, next) => {
   try {
